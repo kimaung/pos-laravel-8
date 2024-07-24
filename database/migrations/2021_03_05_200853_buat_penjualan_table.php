@@ -15,12 +15,12 @@ class BuatPenjualanTable extends Migration
     {
         Schema::create('penjualan', function (Blueprint $table) {
             $table->increments('id_penjualan');
-            $table->integer('id_supplier');
+            $table->integer('id_member');
             $table->integer('total_item');
             $table->integer('total_harga');
-            $table->integer('diskon')->default(0);
+            $table->tinyInteger('diskon')->default(0);
             $table->integer('bayar')->default(0);
-            $table->integer('diterima');
+            $table->integer('diterima')->default(0);
             $table->integer('id_user');
             $table->timestamps();
         });
@@ -33,6 +33,6 @@ class BuatPenjualanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pembelian');
+        Schema::dropIfExists('penjualan');
     }
 }

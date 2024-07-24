@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class BuatSupplierTable extends Migration
+class BuatMemberTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class BuatSupplierTable extends Migration
      */
     public function up()
     {
-        Schema::create('supplier', function (Blueprint $table) {
-            $table->increments('id_supplier');
+        Schema::create('member', function (Blueprint $table) {
+            $table->increments('id_member');
+            $table->string('kode_member')->unique();
             $table->string('nama');
-            $table->text('alamat');
+            $table->text('alamat')->nullable();
             $table->string('telepon');
             $table->timestamps();
         });
@@ -29,6 +30,6 @@ class BuatSupplierTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('supplier');
+        Schema::dropIfExists('member');
     }
 }
