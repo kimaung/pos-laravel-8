@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use App\Models\Setting;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\PDF;
+use PDF;
 
 class MemberController extends Controller
 {
@@ -68,7 +68,7 @@ class MemberController extends Controller
         $kode_member = (int) $member->kode_member +1;
 
         $member = new Member();
-        $member->kode_member = tambah_nol_didepan($kode_member, 13);
+        $member->kode_member = tambah_nol_didepan($kode_member, 5);
         $member->nama = $request->nama;
         $member->telepon = $request->telepon;
         $member->alamat = $request->alamat;
@@ -80,7 +80,7 @@ class MemberController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -93,7 +93,7 @@ class MemberController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -105,7 +105,7 @@ class MemberController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -118,7 +118,7 @@ class MemberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)

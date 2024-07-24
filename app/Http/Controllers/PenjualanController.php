@@ -7,7 +7,7 @@ use App\Models\PenjualanDetail;
 use App\Models\Produk;
 use App\Models\Setting;
 use Illuminate\Http\Request;
-use Barryvdh\DomPDF\Facade\PDF;
+use PDF;
 
 class PenjualanController extends Controller
 {

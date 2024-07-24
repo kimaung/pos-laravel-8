@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use App\Models\Produk;
-use Barryvdh\DomPDF\Facade\PDF;
+use PDF;
 
 class ProdukController extends Controller
 {
@@ -158,7 +158,6 @@ class ProdukController extends Controller
         }
 
         $no  = 1;
-        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true]);
         $pdf = PDF::loadView('produk.barcode', compact('dataproduk', 'no'));
         $pdf->setPaper('a4', 'potrait');
         return $pdf->stream('produk.pdf');
